@@ -6,7 +6,7 @@ using namespace std;
 void DDA(int xa, int ya, int xb, int yb)
 {
     int gd = DETECT, gm;
-    initgraph(&gd, &gm);
+    initgraph(&gd, &gm, (char*)"");
     int dx = xb - xa, dy = yb-ya, steps , k;
     float xI , yI, x = xa, y = ya;
 
@@ -25,7 +25,7 @@ void DDA(int xa, int ya, int xb, int yb)
        delay(100);
         putpixel (ROUND(x),ROUND(y),YELLOW);
     }
-    outtextxy(200 , 200);
+    outtextxy(200 , 200,(char*)"Arnav Deshpande");
     getch();
     closegraph();
 }
