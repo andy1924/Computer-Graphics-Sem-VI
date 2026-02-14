@@ -1,7 +1,8 @@
 #include <graphics.h>
 #include <iostream>
 using namespace std;
-void bresenhamLDA(int x1,int y1, int x2, int y2){
+void bresenhamLDA(int x1,int y1, int x2, int y2)
+{
     int gd = DETECT, gm;
     initgraph(&gd, &gm, (char*)"");
     int dx = abs(x2-x1), dy = abs(y2-y1),P;
@@ -29,7 +30,8 @@ void bresenhamLDA(int x1,int y1, int x2, int y2){
 }
 
 
-int main(){
+int main()
+{
 int x1,y1,x2,y2;
 cout<<"---This is Bresenham's Line drawing Algorithm---"<<endl;
 cout<<"Enter x1, y1, x2, y2: ";
