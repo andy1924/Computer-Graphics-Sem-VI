@@ -1,128 +1,110 @@
 # Computer Graphics - Semester VI
 
-A comprehensive collection of computer graphics lab experiments implementing fundamental graphics algorithms and techniques using C++ with the WinBGIm library.
+This repository contains C++ lab programs for core Computer Graphics algorithms using WinBGIm (`graphics.h`) on Windows.
 
 ## Project Overview
 
-This project contains implementations of core computer graphics algorithms including line drawing algorithms, circle and ellipse rendering, and basic graphics operations.
+The codebase covers classic rasterization algorithms and 2D geometric transformations. Programs are organized by module for lab use and demonstration.
 
-## Experiments & Programs
+## Programs
 
-### Root Level Programs
+### Root Level
 
 #### C035_EXP2_CG.cpp
-- **Description**: Graphics library demonstration with basic shapes
-- **Topics**: Basic graphics operations including pixels, lines, circles, rectangles, and ellipses
-- **Key Functions**: Drawing primitives using graphics.h library
-- **Status**: In Development
+- Basic graphics primitives demo.
 
 #### C035_EXP3_CG.cpp
-- **Description**: DDA (Digital Differential Analyzer) Line Drawing Algorithm
-- **Topics**: Line rasterization using the DDA algorithm
-- **Key Features**:
-  - Implements DDA algorithm for line drawing
-  - Calculates interpolated pixel positions
-  - Outputs pixel coordinates during drawing
-- **Author**: Arnav Deshpande
-- **Status**: Completed
+- DDA line drawing experiment.
 
-### Module 2: Graphics Algorithms
+### Module 2 Algorithms
 
 #### Bresenham's_LDA.cpp
-- **Description**: Bresenham's Line Drawing Algorithm
-- **Topics**: Efficient integer-based line rasterization
-- **Key Features**:
-  - Integer-only computations for efficiency
-  - Decision parameter approach
-  - Console output of calculated points and decision values
-- **Algorithm**: Uses the decision parameter P to determine which pixels to select
-- **Status**: Completed
+- Bresenham line drawing algorithm.
 
 #### Circle_MPA.cpp
-- **Description**: Circle Drawing using Midpoint Algorithm
-- **Topics**: Efficient circle rasterization with symmetry
-- **Key Features**:
-  - Exploits 8-way symmetry for efficiency
-  - Midpoint circle algorithm implementation
-  - Automatic plotting of symmetric points
-- **Method**: Decision parameter-based approach for optimal pixel selection
-- **Status**: Completed
+- Midpoint circle algorithm.
+
+#### DDA.cpp
+- DDA line drawing implementation.
 
 #### Elipse_MPA.cpp
-- **Description**: Ellipse Drawing using Midpoint Algorithm
-- **Topics**: Two-region ellipse rasterization
-- **Key Features**:
-  - Implements Region 1 and Region 2 logic
-  - Different decision parameters for each region
-  - Uses floating-point calculations for accuracy
-  - Supports 4-way symmetry
-- **Status**: Completed
+- Midpoint ellipse algorithm.
 
-## Build Instructions
+#### Poly_Fill_Algo.cpp
+- Polygon fill demonstration on a triangle.
+- Includes both:
+  - `FloodFill4(x, y, newColor, oldColor)`
+  - `BoundaryFill4(x, y, fillColor, boundaryColor)`
+
+### Module 3 Algorithms
+
+#### TRANSFORMATIONS_2D..cpp
+- Merged 2D transformation program with reusable functions.
+- Covered operations:
+  - Translation: $x' = x + t_x, y' = y + t_y$
+  - Scaling: $x' = x \cdot s_x, y' = y \cdot s_y$
+  - Rotation: $x' = x\cos\theta - y\sin\theta, y' = x\sin\theta + y\cos\theta$
+  - Composite transform (scale + rotate + translate)
+- Function-based structure:
+  - `translateObject(...)`
+  - `scaleObject(...)`
+  - `rotateObject(...)`
+  - `compositeTransform(...)`
+
+#### REFLECTION_SHEARING.cpp
+- Reflection and shearing experiment (reflection coordinate outputs + shearing display).
+
+## Build and Run
 
 ### Prerequisites
-- MinGW C++ Compiler (g++)
-- WinBGIm Graphics Library
-- Windows Operating System
+- Windows OS
+- MinGW g++
+- WinBGIm library linked with `-lbgi -lgdi32 -lcomdlg32 -luuid -loleaut32 -lole32`
 
-### Building
-Use the configured build task in VS Code:
-```bash
-Ctrl+Shift+B  # Default build command
+### Build in VS Code
+Use the configured build task:
+
+```text
+Ctrl+Shift+B
 ```
 
-Or manually compile:
+This creates executables in `Home/build/`.
+
+### Manual Build Command
+
 ```bash
-g++ -std=gnu++17 -g <filename>.cpp -o build/<filename>.exe -lbgi -lgdi32 -lcomdlg32 -luuid -loleaut32 -lole32
+g++ -std=gnu++17 -g "<file>.cpp" -o "Home/build/<file>.exe" -lbgi -lgdi32 -lcomdlg32 -luuid -loleaut32 -lole32
 ```
 
-## Technologies Used
+### Run
 
-- **Language**: C++ (C++17)
-- **Graphics Library**: WinBGIm (Windows BGI)
-- **Compiler**: MinGW GCC
-- **Build System**: VS Code Task Runner
-
-## Key Algorithms Implemented
-
-1. **DDA Algorithm**: Linear interpolation based line drawing
-2. **Bresenham's Line Algorithm**: Integer-based efficient line drawing
-3. **Midpoint Circle Algorithm**: Efficient circle rasterization with symmetry
-4. **Midpoint Ellipse Algorithm**: Two-region approach for ellipse drawing
+```bash
+./Home/build/<program>.exe
+```
 
 ## Folder Structure
 
-```
+```text
 Computer-Graphics-Sem-VI/
-├── C035_EXP2_CG.cpp           # Basic graphics operations
-├── C035_EXP3_CG.cpp           # DDA line algorithm
-├── Module 2 Algorithms/
-│   ├── Bresenham's_LDA.cpp     # Bresenham's line drawing
-│   ├── Circle_MPA.cpp          # Midpoint circle algorithm
-│   └── Elipse_MPA.cpp          # Midpoint ellipse algorithm
-├── Home/
-│   └── build/                  # Compiled executable output
-└── README.md                   # This file
+|-- C035_EXP2_CG.cpp
+|-- C035_EXP3_CG.cpp
+|-- README.md
+|-- Home/
+|   `-- build/
+|-- Module 2 Algorithms/
+|   |-- Bresenham's_LDA.cpp
+|   |-- Circle_MPA.cpp
+|   |-- DDA.cpp
+|   |-- Elipse_MPA.cpp
+|   `-- Poly_Fill_Algo.cpp
+`-- Module 3 Algorithms/
+    |-- TRANSFORMATIONS_2D..cpp
+    `-- REFLECTION_SHEARING.cpp
 ```
 
-## Running Programs
+## Tech Stack
 
-After building, execute the compiled programs:
-```bash
-./Home/build/<program_name>.exe
-```
-
-Each program displays graphics output and may print algorithm parameters to the console for educational purposes.
-
-## Course Information
-
-- **Course**: Computer Graphics
-- **Semester**: VI
-- **Institution**: [Your Institute Name]
-
-## Notes
-
-- All programs use yellow color (YELLOW) for drawing
-- Graphics output requires a compatible Windows environment
-- Console output helps understand algorithm execution steps
-- Each program includes delay() calls for visual step-by-step execution
+- Language: C++17
+- Graphics Library: WinBGIm (`graphics.h`)
+- Compiler: MinGW g++
+- Editor/Build: VS Code task runner

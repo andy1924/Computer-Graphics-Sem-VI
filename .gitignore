@@ -5,3 +5,4 @@
 *.tmp
 graphics.h
 Home/
+.vscode/
