@@ -11,11 +11,7 @@ The codebase covers classic rasterization algorithms and 2D geometric transforma
 ### Root Level
 
 #### C035_EXP2_CG.cpp
-- Basic graphics primitives demo.
-
-#### C035_EXP3_CG.cpp
-- DDA line drawing experiment.
-
+- Basic graphics primitives demo. 
 ### Module 2 Algorithms
 
 #### Bresenham's_LDA.cpp
